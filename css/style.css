@@ -85,6 +85,10 @@ a { color: inherit; text-decoration: none; }
   justify-content: center;
   text-align: center;
   overflow: hidden;
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  background: var(--black);
 }
 
 .hero__bg {
@@ -221,12 +225,14 @@ section {
 }
 
 .details__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 24px;
 }
 
 .detail-card {
+  flex: 0 1 240px;
   background: var(--white);
   border: 1px solid rgba(184, 146, 63, 0.25);
   border-radius: 6px;
@@ -312,13 +318,18 @@ section {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 24px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
 }
 
 .gallery__item {
   position: relative;
+  flex: 0 1 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   padding: 0;
   cursor: pointer;
@@ -372,17 +383,9 @@ section {
 
 .rsvp__iframe {
   width: 100%;
-  height: 900px;
+  height: 1302px;
   border: none;
   display: block;
-}
-
-.rsvp__placeholder-note {
-  padding: 14px;
-  font-size: 0.82rem;
-  color: var(--text-muted);
-  background: rgba(184, 146, 63, 0.08);
-  border-top: 1px dashed rgba(184, 146, 63, 0.4);
 }
 
 .rsvp__fallback {
@@ -485,5 +488,5 @@ section {
   .nav__links a { font-size: 0.72rem; }
   section { padding: 72px 20px; }
   .countdown__unit { width: 68px; height: 68px; }
-  .rsvp__iframe { height: 760px; }
+  .rsvp__iframe { height: 1100px; }
 }
