@@ -409,6 +409,20 @@ section {
   line-height: 1.8;
 }
 
+.closing__text ol {
+  text-align: left;
+  list-style-position: outside;
+  padding-left: 1.2em;
+}
+
+.closing__text li {
+  padding-left: 0.35em;
+}
+
+.closing__text li + li {
+  margin-top: 10px;
+}
+
 /* ---------- Footer ---------- */
 .footer {
   background: var(--black);
