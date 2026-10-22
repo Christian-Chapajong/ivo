@@ -76,3 +76,34 @@ window.addEventListener('scroll', () => {
 toTopBtn.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+/* Event information announcement banner */
+document.addEventListener('DOMContentLoaded', () => {
+  const banner = document.createElement('div');
+
+  banner.className = 'event-banner';
+  banner.setAttribute('role', 'status');
+  banner.setAttribute('aria-label', 'Important event information');
+
+  banner.innerHTML = `
+  <button class="event-banner__close"
+          type="button"
+          aria-label="Dismiss announcement">&times;</button>
+
+  <p class="event-banner__title">✨ Important Information</p>
+  <p>🕠 <strong>Start time: 5:30 PM</strong> — please arrive on time.</p>
+  <p>🅿️ <strong>Free parking</strong> available on site from 6:00 PM.</p>
+  `;
+
+  document.body.appendChild(banner);
+
+  const closeButton = banner.querySelector('.event-banner__close');
+
+  closeButton.addEventListener('click', () => {
+    banner.classList.remove('is-visible');
+  });
+
+  // Show the banner shortly after the page loads.
+  window.setTimeout(() => {
+    banner.classList.add('is-visible');
+  }, 700);
+});
