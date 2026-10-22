@@ -384,6 +384,141 @@ section {
   border-bottom: 1px solid var(--gold-dark);
 }
 
+/* ---------- Important Information ---------- */
+/* Important Information */
+.important-info {
+  max-width: 900px;
+  margin: 48px auto 36px;
+  padding: 0 20px;
+}
+
+.important-info .section__eyebrow {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.important-info .section__title {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.important-info__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.important-info__card {
+  position: relative;
+  padding: 30px 24px;
+  text-align: center;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid rgba(179, 231, 255, 0.8);
+  border-top: 4px solid #b3e7ff;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.07);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.important-info__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.11);
+}
+
+.important-info__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  margin-bottom: 14px;
+  border-radius: 50%;
+  background: #eef9ff;
+  font-size: 28px;
+}
+
+.important-info__label {
+  margin: 0 0 8px;
+  color: #8b713c;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.important-info__card h3 {
+  margin: 0 0 14px;
+  color: #172d46;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+}
+
+.important-info__card > p:last-child {
+  margin: 0;
+  color: #555;
+  font-family: 'Jost', sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.important-info__card strong {
+  color: #172d46;
+  font-weight: 600;
+}
+
+/* Give the arrival time extra prominence */
+.important-info__card--time {
+  border-top-color: #c6a45c;
+  background: linear-gradient(180deg, #fffdf8 0%, #fff 100%);
+}
+
+.important-info__card--time .important-info__icon {
+  background: #f8f0df;
+}
+
+/* Highlight free parking in the event's blue palette */
+.important-info__card--parking {
+  border-top-color: #7bc9ee;
+  background: linear-gradient(180deg, #f4fbff 0%, #fff 100%);
+}
+
+.important-info__card--parking h3 {
+  color: #17658c;
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+  .important-info {
+    margin: 36px auto 28px;
+    padding: 0 16px;
+  }
+
+  .important-info__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .important-info__card {
+    padding: 26px 20px;
+  }
+
+  .important-info__card:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .important-info__card {
+    transition: none;
+  }
+
+  .important-info__card:hover {
+    transform: none;
+  }
+}
+
 /* ---------- Closing ---------- */
 .closing__text {
   max-width: 680px;
@@ -496,4 +631,81 @@ section {
   .nav__links a { font-size: 0.72rem; }
   section { padding: 72px 20px; }
   .countdown__unit { width: 68px; height: 68px; }
+}
+/* Small event announcement banner */
+.event-banner {
+  position: fixed;
+  top: 82px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  width: calc(100% - 32px);
+  max-width: 540px;
+  padding: 14px 42px 14px 18px;
+  background: #fff;
+  border: 1px solid #B3E7FF;
+  border-left: 4px solid #C6A45C;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(23, 45, 70, 0.12);
+  color: #172D46;
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.event-banner.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.event-banner p {
+  margin: 0;
+}
+
+.event-banner strong {
+  color: #172D46;
+  font-weight: 600;
+}
+
+.event-banner__close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  padding: 2px 6px;
+  border: none;
+  background: transparent;
+  color: #555;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.event-banner__close:hover {
+  color: #172D46;
+}
+
+.event-banner__title {
+  margin: 0 0 6px;
+  color: #172D46;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding-bottom: 5px;
+}
+
+@media (max-width: 600px) {
+  .event-banner {
+    top: 72px;
+    padding: 12px 36px 12px 14px;
+    font-size: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .event-banner {
+    transition: none;
+  }
 }
